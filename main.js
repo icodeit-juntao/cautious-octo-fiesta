@@ -23514,7 +23514,7 @@
   // src/components/App.jsx
   var import_react = __toESM(require_react());
   function App() {
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "App" }, /* @__PURE__ */ import_react.default.createElement("main", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Welcome to A React Application!"), /* @__PURE__ */ import_react.default.createElement("p", null, "This is a simple React app deployed using a build script.")));
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "App" }, /* @__PURE__ */ import_react.default.createElement("main", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Welcome to A React Application!"), /* @__PURE__ */ import_react.default.createElement("p", null, "This is a simple React app deployed using a build script. -- Juntao")));
   }
   var App_default = App;
 
