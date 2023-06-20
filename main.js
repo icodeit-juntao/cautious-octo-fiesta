@@ -2382,9 +2382,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React3 = require_react();
+          var React4 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React4.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3989,7 +3989,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React3.Children.forEach(props.children, function(child) {
+                  React4.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12436,7 +12436,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React3.Component().refs;
+          var emptyRefsObject = new React4.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -23508,31 +23508,50 @@
   });
 
   // src/index.jsx
-  var import_react2 = __toESM(require_react());
+  var import_react4 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // src/components/App.jsx
+  var import_react3 = __toESM(require_react());
+
+  // src/components/useFetchQuotes.js
   var import_react = __toESM(require_react());
-  var Quote = ({ content }) => {
-    console.log(content);
-    return /* @__PURE__ */ import_react.default.createElement("p", { className: "quote" }, content);
-  };
-  function App() {
+  var useFetchQuotes = () => {
     const [quotes, setQuotes] = (0, import_react.useState)([]);
+    const [loading, setLoading] = (0, import_react.useState)(false);
     (0, import_react.useEffect)(() => {
       const fetchQuotes = async () => {
-        fetch("https://quotes-204h.onrender.com/quotes").then((r) => r.json()).then((data) => setQuotes(data));
+        setLoading(true);
+        fetch("https://quotes-204h.onrender.com/quotes").then((r) => r.json()).then((data) => {
+          setLoading(false);
+          setQuotes(data);
+        }).catch((e) => {
+          setLoading(false);
+        });
       };
       fetchQuotes();
     }, []);
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react.default.createElement("main", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Welcome to A React Application!"), quotes.map((quote) => /* @__PURE__ */ import_react.default.createElement(Quote, { key: quote.author, content: quote.quote }))));
+    return { quotes, loading };
+  };
+  var useFetchQuotes_default = useFetchQuotes;
+
+  // src/components/Quote.jsx
+  var import_react2 = __toESM(require_react());
+  var Quote = ({ content }) => {
+    return /* @__PURE__ */ import_react2.default.createElement("p", { className: "quote" }, content);
+  };
+
+  // src/components/App.jsx
+  function App() {
+    const { quotes, loading } = useFetchQuotes_default();
+    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react3.default.createElement("main", null, /* @__PURE__ */ import_react3.default.createElement("h1", null, "Welcome to A React Application!"), loading && /* @__PURE__ */ import_react3.default.createElement("p", null, "Loading..."), !loading && quotes.map((quote) => /* @__PURE__ */ import_react3.default.createElement(Quote, { key: quote.author, content: quote.quote }))));
   }
   var App_default = App;
 
   // src/index.jsx
   var domNode = document.getElementById("root");
   var root = (0, import_client.createRoot)(domNode);
-  root.render(/* @__PURE__ */ import_react2.default.createElement(App_default, null));
+  root.render(/* @__PURE__ */ import_react4.default.createElement(App_default, null));
 })();
 /*! Bundled license information:
 
