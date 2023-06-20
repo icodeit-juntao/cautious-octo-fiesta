@@ -1,0 +1,21 @@
+.app {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+}
+
+.quote {
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    font-family: "Diphylleia", serif;
+}
+
+.quote::first-letter {
+    -webkit-initial-letter: 2;
+    initial-letter: 2;
+    color: orange;
+    font-weight: bold;
+}
