@@ -1,30 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './app.css';
-
-const Quote = ({content}) => {
-  console.log(content);
-  return (<p className="quote">
-    {content}
-  </p>)
-}
+import useFetchQuotes from "./useFetchQuotes";
+import {Quote} from "./Quote";
 
 function App() {
-  const [quotes, setQuotes] = useState([]);
-
-  useEffect(() => {
-    const fetchQuotes = async () => {
-      fetch('https://quotes-204h.onrender.com/quotes').then(r => r.json()).then(data => setQuotes(data))
-    }
-
-    fetchQuotes();
-  }, [])
+  const {quotes, loading} = useFetchQuotes();
 
   return (
     <div className="app">
       <main>
         <h1>Welcome to A React Application!</h1>
+        {loading && <p>Loading...</p>}
         {
-          quotes.map(quote => (<Quote key={quote.author} content={quote.quote} />))
+          !loading && quotes.map(quote => (<Quote key={quote.author} content={quote.quote}/>))
         }
       </main>
     </div>
