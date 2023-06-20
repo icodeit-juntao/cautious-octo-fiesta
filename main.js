@@ -1084,7 +1084,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState(initialState) {
+          function useState2(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1096,7 +1096,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect(create, deps) {
+          function useEffect2(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1878,7 +1878,7 @@
           exports.useContext = useContext;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect;
+          exports.useEffect = useEffect2;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -1886,7 +1886,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState;
+          exports.useState = useState2;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -23513,8 +23513,19 @@
 
   // src/components/App.jsx
   var import_react = __toESM(require_react());
+  var Quote = ({ content }) => {
+    console.log(content);
+    return /* @__PURE__ */ import_react.default.createElement("p", { className: "quote" }, content);
+  };
   function App() {
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "App" }, /* @__PURE__ */ import_react.default.createElement("main", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Welcome to A React Application!"), /* @__PURE__ */ import_react.default.createElement("p", null, "This is a simple React app deployed using a build script. -- Juntao")));
+    const [quotes, setQuotes] = (0, import_react.useState)([]);
+    (0, import_react.useEffect)(() => {
+      const fetchQuotes = async () => {
+        fetch("https://quotes-204h.onrender.com/quotes").then((r) => r.json()).then((data) => setQuotes(data));
+      };
+      fetchQuotes();
+    }, []);
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react.default.createElement("main", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Welcome to A React Application!"), quotes.map((quote) => /* @__PURE__ */ import_react.default.createElement(Quote, { key: quote.author, content: quote.quote }))));
   }
   var App_default = App;
 
