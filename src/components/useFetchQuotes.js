@@ -7,7 +7,7 @@ const useFetchQuotes = () => {
   useEffect(() => {
     const fetchQuotes = async () => {
       setLoading(true);
-      fetch('http://icodeit-quotes-lb-712972167.ap-southeast-2.elb.amazonaws.com/quotes').then(r => r.json()).then(data => {
+      fetch('http://quote-service-lb-1897730902.ap-southeast-2.elb.amazonaws.com/quotes?count=1').then(r => r.json()).then(data => {
         setLoading(false);
         setQuotes(data);
       }).catch(e => {

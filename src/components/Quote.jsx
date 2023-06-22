@@ -1,8 +1,8 @@
 import React from "react";
 
 export const Quote = ({content, author}) => {
-  return (<p className="quote">
+  return (<div className="quote">
     {content}
-    <div className="author">{author}</div>
-  </p>)
+    <div className="author">&mdash; {author}</div>
+  </div>)
 }

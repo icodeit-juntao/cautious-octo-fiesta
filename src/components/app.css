@@ -1,3 +1,17 @@
+body {
+    /* Location of your image */
+    background-image: url('https://images.unsplash.com/photo-1529697216570-f48ef8f6b2dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80');
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Set height to 100% so it covers the entire page */
+    height: 100vh;
+    margin: 0;
+}
+
 .app {
     max-width: 600px;
     margin: 0 auto;
@@ -5,24 +19,32 @@
 
 h1 {
     font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem 0;
+    color: #666;
 }
 
 .quote {
+    color: white;
     margin: 2rem 0;
-    font-size: 1.2rem;
+    padding: 3rem;
+    font-size: 3rem;
     font-family: "Diphylleia", serif;
+    background-color: lightseagreen;
+    border-radius: 8px;
+    font-weight: bolder;
 }
 
 .quote::first-letter {
-    -webkit-initial-letter: 2;
-    initial-letter: 2;
     color: orange;
     font-weight: bold;
 }
 
 .author {
     text-transform: capitalize;
-    color: #333;
-    font-weight: bold;
+    color: #eee;
+    font-weight: normal;
     text-align: right;
+    font-size: 1.5rem;
 }

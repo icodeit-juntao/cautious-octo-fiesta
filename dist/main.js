@@ -23522,7 +23522,7 @@
     (0, import_react.useEffect)(() => {
       const fetchQuotes = async () => {
         setLoading(true);
-        fetch("http://icodeit-quotes-lb-712972167.ap-southeast-2.elb.amazonaws.com/quotes").then((r) => r.json()).then((data) => {
+        fetch("http://quote-service-lb-1897730902.ap-southeast-2.elb.amazonaws.com/quotes?count=1").then((r) => r.json()).then((data) => {
           setLoading(false);
           setQuotes(data);
         }).catch((e) => {
@@ -23538,7 +23538,7 @@
   // src/components/Quote.jsx
   var import_react2 = __toESM(require_react());
   var Quote = ({ content, author }) => {
-    return /* @__PURE__ */ import_react2.default.createElement("p", { className: "quote" }, content, /* @__PURE__ */ import_react2.default.createElement("div", { className: "author" }, author));
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "quote" }, content, /* @__PURE__ */ import_react2.default.createElement("div", { className: "author" }, "\u2014 ", author));
   };
 
   // src/components/App.jsx
