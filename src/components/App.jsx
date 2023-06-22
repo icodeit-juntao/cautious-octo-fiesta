@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="app">
       <main>
-        <h1>Welcome to A React Application!</h1>
+        <h1>Quote of the day!</h1>
         {loading && <p>Loading...</p>}
         {
-          !loading && quotes.map(quote => (<Quote key={quote.author} content={quote.quote}/>))
+          !loading && quotes.map(quote => (<Quote key={quote.author}  author={quote.author} content={quote.content}/>))
         }
       </main>
     </div>

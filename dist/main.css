@@ -1,6 +1,6 @@
 /* src/components/app.css */
 .app {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 h1 {
@@ -16,4 +16,10 @@ h1 {
   initial-letter: 2;
   color: orange;
   font-weight: bold;
+}
+.author {
+  text-transform: capitalize;
+  color: #333;
+  font-weight: bold;
+  text-align: right;
 }

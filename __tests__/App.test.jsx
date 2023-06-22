@@ -14,7 +14,7 @@ global.fetch = jest.fn().mockImplementation(() =>
   })
 );
 
-test('renders welcome message', () => {
+test('renders page title', () => {
   render(<App />);
-  expect(screen.getByText("Welcome to A React Application!")).toBeInTheDocument();
+  expect(screen.getByText("Quote of the day!")).toBeInTheDocument();
 });
