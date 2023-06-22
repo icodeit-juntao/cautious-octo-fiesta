@@ -23522,7 +23522,7 @@
     (0, import_react.useEffect)(() => {
       const fetchQuotes = async () => {
         setLoading(true);
-        fetch("https://quotes-204h.onrender.com/quotes").then((r) => r.json()).then((data) => {
+        fetch("http://icodeit-quotes-lb-1858777931.ap-southeast-2.elb.amazonaws.com/quotes").then((r) => r.json()).then((data) => {
           setLoading(false);
           setQuotes(data);
         }).catch((e) => {
@@ -23537,14 +23537,14 @@
 
   // src/components/Quote.jsx
   var import_react2 = __toESM(require_react());
-  var Quote = ({ content }) => {
-    return /* @__PURE__ */ import_react2.default.createElement("p", { className: "quote" }, content);
+  var Quote = ({ content, author }) => {
+    return /* @__PURE__ */ import_react2.default.createElement("p", { className: "quote" }, content, /* @__PURE__ */ import_react2.default.createElement("div", { className: "author" }, author));
   };
 
   // src/components/App.jsx
   function App() {
     const { quotes, loading } = useFetchQuotes_default();
-    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react3.default.createElement("main", null, /* @__PURE__ */ import_react3.default.createElement("h1", null, "Welcome to A React Application!"), loading && /* @__PURE__ */ import_react3.default.createElement("p", null, "Loading..."), !loading && quotes.map((quote) => /* @__PURE__ */ import_react3.default.createElement(Quote, { key: quote.author, content: quote.quote }))));
+    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react3.default.createElement("main", null, /* @__PURE__ */ import_react3.default.createElement("h1", null, "Quote of the day!"), loading && /* @__PURE__ */ import_react3.default.createElement("p", null, "Loading..."), !loading && quotes.map((quote) => /* @__PURE__ */ import_react3.default.createElement(Quote, { key: quote.author, author: quote.author, content: quote.content }))));
   }
   var App_default = App;
 
